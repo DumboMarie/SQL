@@ -1,0 +1,36 @@
+CREATE DATABASE hnExercice;
+
+CREATE TABLE Matter (
+    codemat CHAR(255),
+    wording CHAR(255),
+    coef FLOAT,
+    PRIMARY KEY (codemat)
+);
+
+CREATE TABLE Student (
+    numstud INT,
+    name CHAR(255),
+    firstname CHAR(255),
+    dateofbirth DATE,
+    street CHAR(255),
+    postalcod CHAR(255),
+    city CHAR(255),
+    PRIMARY KEY (numstud)
+);
+
+CREATE TABLE Test (
+    numtest INT,
+    testdate DATE,
+    place CHAR(255),
+    codemat CHAR(255),
+    PRIMARY KEY (numtest),
+    FOREIGN KEY (codemat) REFERENCES Matter(codemat)
+);
+
+CREATE TABLE Notation(
+    numstud INT,
+	  numtest INT,
+    score FLOAT,
+    FOREIGN KEY (numstud) REFERENCES Student(numstud),
+    FOREIGN KEY (numtest) REFERENCES Test(numtest)
+);

@@ -1,0 +1,50 @@
+SELECT COUNT(numtest) FROM Test;
+
+SELECT score, name, firstname
+FROM Notation LEFT JOIN Student ON Notation.numstud = Student.numstud;
+
+SELECT score, name, firstname, wording
+FROM Student RIGHT JOIN
+  (
+    SELECT numstud, score, wording
+    FROM Notation LEFT JOIN
+    (
+      SELECT numtest, wording
+      FROM Test NATURAL JOIN Matter
+    )AS TableTransit ON Notation.numtest = TableTransit.numtest
+  )AS TableTransit2 ON Student.numstud = TableTransit2.numstud;
+
+SELECT score FROM Notation WHERE score >= 10;
+
+SELECT name, firstname
+FROM Student INNER JOIN Notation ON Notation.numstud = Student.numstud
+WHERE score>=20;
+
+SELECT name, firstname, AVG(score) AS average
+FROM Student INNER JOIN Notation ON Notation.numstud = Student.numstud
+GROUP BY Student.numstud;
+
+SELECT * FROM Test WHERE testdate BETWEEN '2014-01-01' AND '2014-06-31';
+
+SELECT numtest, testdate, place, wording
+FROM Test LEFT JOIN Matter ON Test.codemat= Matter.codemat;
+
+SELECT name, firstname, AVG(score) AS average
+FROM Student INNER JOIN Notation ON Notation.numstud = Student.numstud
+GROUP BY Student.numstud
+ORDER BY average DESC;
+
+SELECT AVG(score), wording
+FROM Notation INNER JOIN
+  (
+    SELECT numtest, wording
+    FROM Test INNER JOIN
+    (
+      SELECT wording, COUNT(wording) AS nbtest, codemat
+      FROM Matter NATURAL JOIN Test GROUP BY wording HAVING nbtest>1
+    ) AS tableTransit ON Test.codemat = tableTransit.codemat
+  ) AS tableTransit2 ON Notation.numtest = tableTransit2.numtest
+GROUP BY wording;
+
+SELECT AVG(score), numtest as nbtest
+FROM Notation GROUP BY numtest HAVING COUNT(numtest) < 6;

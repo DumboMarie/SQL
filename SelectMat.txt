@@ -1,0 +1,3 @@
+SELECT wording, CONCAT(ROUND(coef / (SELECT SUM(coef) FROM Matter)*100), '%') AS coefficient FROM Matter;
+
+SELECT SUM(coef) FROM Matter;

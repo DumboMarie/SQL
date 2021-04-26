@@ -1,0 +1,52 @@
+INSERT INTO Student VALUES
+	(1, 'Dupont','Jack','1997-12-01', 'Avenue de la liberté', '76530', 'Grand-Couronne'),
+	(2, 'Durand','Paul','1998-10-13', 'Avenue de la liberté', '59000', 'Lille'),
+  (3, 'Martin','Jean','1997-09-21', 'Avenue de la liberté', '76530', 'Grand-Couronne'),
+  (4, 'Dumbo','Marie','1999-07-19', 'Avenue de la liberté', '69000', 'Lyon'),
+  (5, 'Potter','Harry','1996-06-12', 'Avenue de la liberté', '75000', 'Paris'),
+  (6, 'Neel','Julien','1998-05-28', 'Avenue de la liberté', '76530', 'Grand-Couronne'),
+  (7, 'Mars','Bruno','1997-01-24', 'Avenue de la liberté', '78000', 'Versailles');
+
+INSERT INTO Matter VALUES
+	('Fr',  'Francais', 1),
+	('Math',  'Mathématique', 3),
+	('Bio',  'Biologie', 5);
+
+INSERT INTO Test VALUES
+	(11, '2014-01-01', 'Amphi-Nord','Bio'),
+	(12, '2014-06-30', 'Amphi-Sud', 'Bio'),
+	(21, '2014-05-14', 'Amphi-Est', 'Math'),
+	(22, '2013-10-5', 'Amphi-Ouest', 'Math'),
+	(31, '2013-12-7', 'Amphi-Sud', 'Fr');
+
+INSERT INTO Notation VALUES
+	(1, 11, 20),
+	(2, 11, 20),
+	(3, 11, 10),
+	(4, 11, 11),
+	(5, 11, 12),
+	(6, 11, 13),
+	(7, 11, 14),
+	(1, 12, 15),
+	(2, 12, 16),
+	(3, 12, 17),
+	(4, 12, 18),
+	(5, 12, 19),
+	(6, 12, 10),
+	(7, 12, 12),
+	(1, 21, 14),
+	(2, 21, 15),
+	(3, 21, 16),
+	(4, 21, 16),
+	(5, 21, 17),
+	(6, 21, 18),
+	(7, 21, 6),
+	(1, 22, 8),
+	(2, 22, 9),
+	(3, 22, 2),
+	(4, 22, 2),
+	(5, 22, 1),
+	(4, 31, 4),
+ 	(3, 31, 2),
+	(1, 31, 0),
+	(2, 31, 7);
